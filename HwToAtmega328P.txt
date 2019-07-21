@@ -1,0 +1,47 @@
+Atmega328PをArduinoとして使う
+
+環境
+win10
+Arduino IDE 1.8.5
+http://akizukidenshi.com/catalog/g/gI-03142/
+
+0.開発環境をセットアップする
+C:\Program Files (x86)\Arduino\hardware
+に
+https://www.arduino.cc/en/Tutorial/ArduinoToBreadboard
+からダウンロードした
+breadbord
+を配置する。
+一度実施すれば再度実施不要。
+
+1.普通のArduinoUnoをブートローダー書き込み装置にする。
+ツール->書き込み装置->AVRISP mkⅡ(普段Arduinoにスケッチを書き込む設定)であることを確認
+ツール->ボード->ArduinoUnoを確認
+何もつないでいないArduinoUnoをUSBで接続
+ファイル->スケッチ例->11.ArduinoISP->ArduinoISP
+書き込む
+ArduinoUnoが、ブートローダー書き込み装置になりました。
+書き込み基盤を装着したArduinoUnoは、Atmega328P用の書き込み装置として使うのがよい。
+
+2.Atmega328P用書き込み基盤を用意する。
+ArduinoUnoを外す
+書き込み基盤を装着する
+Atmega328Pを装着する
+ArduinoUnoを接続する
+ツール->ボード->Atmega328 on a breadboard(8 MHz internal clock)
+ツール->書き込み装置->Arduino as ISP
+ツール->ブートローダを書き込む
+Atmega328Pにブートローダが書き込まれました
+
+3.コーディング
+Atmega328Pに書き込みたいスケッチを作成する
+
+4.Atmega328Pにプログラムを書き込む。
+ツール->ボード->Atmega328 on a breadboard(8 MHz internal clock)を確認する
+ツール->書き込み装置->Arduino as ISPを確認する
+スケッチ->書き込み装置を使って書き込む(ctrl+Shift+U)
+
+参考
+http://teppodone.hatenadiary.jp/entry/ArduinoIDE1.8.5_8MHz_internalClock_ATmega328P
+https://blog.techlab-xe.net/archives/5875
+https://www.arduino.cc/en/Tutorial/ArduinoToBreadboard
